@@ -55,6 +55,10 @@
        .home-footer .home-copyright {background:#2FCBE0;}
        .home-footer .home-copyright p {color:#fff;}
 
+       /* Paint the first slide before carousel JavaScript is ready. */
+       #owl-demo {display:block;}
+       #owl-demo > .item:not(:first-child) {display:none;}
+       #owl-demo .item > img {width:100%;height:auto;aspect-ratio:16 / 9;}
        /* Homepage carousel usability enhancements */
        #owl-demo .owl-controls .owl-buttons div {
          position:absolute; top:50%; transform:translateY(-50%);
@@ -85,17 +89,61 @@
        a.home-clickable-image:hover img,
        a.home-clickable-image:focus img {transform:scale(1.035);}
        @media (max-width:768px) {
+         /* Match every mobile H2 to the current 1rem homepage H1. */
+         body.size-1140 h2 {font-size:1rem !important;}
          #owl-demo .owl-controls .owl-buttons div {width:38px;height:38px;line-height:38px;}
          #owl-demo .owl-controls .owl-buttons .owl-prev {left:8px;}
          #owl-demo .owl-controls .owl-buttons .owl-next {right:8px;}
        }
+
+       /* Keep the desktop/landscape navigation on one row. */
+       @media (min-width:769px) {
+         #home-nav > .line > .top-nav {
+           display:grid;
+           grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);
+           align-items:stretch;
+         }
+         #home-nav > .line > .top-nav > .top-nav,
+         #home-nav > .line > .top-nav > ul {
+           float:none; width:auto; min-width:0; background:transparent;
+         }
+         #home-nav .top-ul {
+           display:flex; flex-wrap:nowrap; float:none; width:100%; height:100%;
+         }
+         #home-nav .top-ul > li {float:none; flex:1 1 0; min-width:0;}
+         #home-nav .top-ul > li.nav-language {flex:0 0 auto;}
+         #home-nav .top-ul > li.nav-language > a {padding-inline:6px;}
+         #home-nav .top-ul > li > a {
+           display:flex; align-items:center; justify-content:center;
+           height:100%; min-height:76px; padding:12px 4px;
+           font-size:14px; line-height:1.5; white-space:nowrap;
+         }
+         #home-nav .logo {float:none; width:100%;}
+         #home-nav .logo a {
+           display:block; padding:16px 4px; min-height:76px;
+           font-size:20px; line-height:1.1; white-space:nowrap;
+         }
+       }
+       @media (min-width:1100px) {
+         #home-nav .top-ul > li > a {font-size:16px;}
+       }
+
+       @media (max-width:768px) {
+         #home-nav .logo.hide-l > a {
+           display:flex;
+           flex-direction:column;
+           align-items:center;
+           gap:8px;
+           line-height:1.4;
+         }
+       }
       </style>
 
 	
-      <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-      <script type="text/javascript" src="js/jquery-ui.min.js"></script>    
-      <script type="text/javascript" src="js/modernizr.js"></script>
-      <script type="text/javascript" src="js/responsee.js"></script>  
+      <script data-cfasync="false" defer type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+      <script data-cfasync="false" defer type="text/javascript" src="js/jquery-ui.min.js"></script>    
+      <script data-cfasync="false" defer type="text/javascript" src="js/modernizr.js"></script>
+      <script data-cfasync="false" defer type="text/javascript" src="js/responsee.js"></script>  
 	
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-978261267">
@@ -117,12 +165,12 @@
    <body class="size-1140">
    <!-- TOP NAV WITH LOGO -->  
   <header>
-   <nav>           
+   <nav id="home-nav" aria-label="主要導覽">           
    <div class="line">
    <div class="top-nav">              
      
 	 <div class="logo hide-l">
-     <a href="index.html">SEIYA 世屋國際<br />
+     <a href="index.html"><span>SEIYA 世屋國際</span>
     <strong>除甲醛.細菌</strong></a>
       </div> 
 			 
@@ -146,7 +194,7 @@
 		 
    <li><a href="tech.html" >技術資料</a></li>
    <li><a href="contact.html">聯絡我們</a></li>
-   <li><a href="index1.html">English</a></li>
+   <li class="nav-language"><a href="index1.html" lang="en" aria-label="English">ENG</a></li>
   </ul> 
   </div>
   </div>
@@ -160,7 +208,7 @@
            <div class="item">
                 
    
-    <img fetchpriority="high" src="img/hchotest.webp" alt="除甲醛消毒">     
+    <img width="1600" height="900" loading="eager" fetchpriority="high" src="img/hchotest.webp" alt="除甲醛消毒">     
    
           <div class="carousel-text">
           <div class="line">
@@ -177,7 +225,7 @@
    <div class="item">
        
   
-    <img src="img/first.webp" alt="細菌消毒">
+    <img width="1600" height="900" loading="lazy" decoding="async" src="img/first.webp" alt="細菌消毒">
    	 
 		   
 			    
@@ -197,7 +245,7 @@
                
    <div class="item">
   
-    <img src="img/second.webp" alt="病蟲鼠害防治服務">
+    <img width="1600" height="900" loading="lazy" decoding="async" src="img/second.webp" alt="病蟲鼠害防治服務">
 	    
 		     
     <div class="carousel-text">
@@ -218,7 +266,7 @@
    <div id="first-block">
    <div class="line">
    <p class="subtitile">預防及治標才可降低您的營運成本</p>
-   <img src="image/line2.jpg" alt="line"/>
+   <img loading="lazy" decoding="async" src="image/line2.jpg" alt="line"/>
                 
    <div class="margin">
     
@@ -226,41 +274,41 @@
     <h3> <a href="room2-4.html"><b>
     <font color="#F92567" >除甲醛致癌物</font></b></a></h3>
 	<a class="home-clickable-image" href="room2-4.html">
-    <img src="img/hcho/hcho.webp"  alt="除甲醛消毒"/>
+    <img loading="lazy" decoding="async" src="img/hcho/hcho.webp"  alt="除甲醛消毒"/>
 	</a>
 		
     <p id="special"><a href="room2-5.html">
 	<font color="#040000" style="font-size: 12pt">除甲醛詳細說明</font></a> </p>
-	<img src="image/line.jpg" alt="line"/>
+	<img loading="lazy" decoding="async" src="image/line.jpg" alt="line"/>
     </div>
    
     <div class="s-12 m-6 l-3 margin-bottom">
     <h3><a href="room2.html"><b>
 		<font color="#F92567">細菌病毒殺菌消毒</font></b></a></h3>
 		
-    <img src="img/antivirus/bio38.webp"  alt="細菌病毒消毒"/>
+    <img loading="lazy" decoding="async" src="img/antivirus/bio38.webp"  alt="細菌病毒消毒"/>
      
      <h4><a href="seiya1.html">
 		 <font color="#040000" style="font-size: 12pt"  >細菌病毒消毒-感染防治</font></a></h4>
-     <img src="image/line.jpg" alt="line"/>
+     <img loading="lazy" decoding="async" src="image/line.jpg" alt="line"/>
      </div>
                   
      <div class="s-12 m-6 l-3 margin-bottom">
       <h3><a href="room2-2.html"><b><font color="#F92567">病蟲鼠跳蚤消毒</font></b></a></h3>
-      <img src="img/pest/1940.webp" alt="跳蚤蚊蟲消毒"/>
+      <img loading="lazy" decoding="async" src="img/pest/1940.webp" alt="跳蚤蚊蟲消毒"/>
                      
        <h4><a href="room2-2.html">
 		   <font color="#040000" style="font-size: 12pt">蚊蟲蟑螂跳蚤白蟻消毒</font></a></h4>
-       <img src="image/line.jpg" alt="line"/>
+       <img loading="lazy" decoding="async" src="image/line.jpg" alt="line"/>
       </div>
                   
                   
       <div class="s-12 m-6 l-3 margin-bottom">
         <h3><a href="purifier.html"><font color="#F92567"><b>空氣淨化模組</b></font></a></h3>
-        <img src="img/air/2018.jpg" alt="光觸媒"/>
+        <img loading="lazy" decoding="async" src="img/air/2018.jpg" alt="光觸媒"/>
                     
 		  <h4><font color="#040000" style="font-size: 12pt">除殺菌空調模組-車用除菌臭</font></h4>
-         <img src="image/line.jpg" alt="line">
+         <img loading="lazy" decoding="async" src="image/line.jpg" alt="line">
         </div>
         </div>
         </div>
@@ -304,20 +352,20 @@
       <font color="#F92567" style="font-size: 18pt">環境應用材料相關產品開發</font>
        <p class="subtitile">SEIYA Since 1973</p>
      <div class="margin">
-     <div class="s-12 m-6 l-3"><img src="img/photocatalyst/P11.webp" alt="光觸媒牙齒美白"/>
+     <div class="s-12 m-6 l-3"><img loading="lazy" decoding="async" src="img/photocatalyst/P11.webp" alt="光觸媒牙齒美白"/>
      <p class="subtitile"><b><font color="#0000FF" style="font-size: 11pt">台大會議中心技術發表</font></b></p>
      </div>
     
-	 <div class="s-12 m-6 l-3"><img src="img/photocatalyst/P15.webp" alt="光觸媒UVLED除臭菌除甲醛裝置"/>
+	 <div class="s-12 m-6 l-3"><img loading="lazy" decoding="async" src="img/photocatalyst/P15.webp" alt="光觸媒UVLED除臭菌除甲醛裝置"/>
      <p class="subtitile"><b><a href="photo.html"><font color="#0000FF" style="font-size: 11pt">光動力觸媒應用技術</font></a></b></p>
      </div>
    
-	 <div class="s-12 m-6 l-3"><img src="img/antivirus/bio3.jpg" width="400" height="250" alt="細菌消毒"/>
+	 <div class="s-12 m-6 l-3"><img loading="lazy" decoding="async" src="img/antivirus/bio3.jpg" width="400" height="250" alt="細菌消毒"/>
      <p class="subtitile"><b><font color="#0000FF" style="font-size: 11pt">細菌消毒可靠度檢測 </font></b></p>
      </div>
 
 	 <div class="s-12 m-6 l-3">
-     <img src="img/photocatalyst/p3.webp" width="400" height="250" alt="光觸媒濾網"/>
+     <img loading="lazy" decoding="async" src="img/photocatalyst/p3.webp" width="400" height="250" alt="光觸媒濾網"/>
      <p class="subtitile"><b><font color="#0000FF"><font style="font-size: 11pt">清淨模組代工開發 </font></font></b></p>
      </div>
     
@@ -391,7 +439,7 @@
     <li><h3>執行與後續確認</h3><p>依確認方案執行，並說明後續注意事項與約定的確認方式。</p></li>
    </ol>
 	    
-    <a class="line-link" href="line://ti/p/%40ruh6003z" aria-label="使用 LINE 預約環境評估"><img src="image/linelogo.jpg" alt="LINE"></a>
+    <a class="line-link" href="line://ti/p/%40ruh6003z" aria-label="使用 LINE 預約環境評估"><img loading="lazy" decoding="async" src="image/linelogo.jpg" alt="LINE"></a>
    
 	  
   
@@ -406,11 +454,13 @@
    <p>世屋國際環境有限公司 © 2026 SEIYA</p><p>TEL：02-2872-5575 / FAX：02-2874-3644</p>
   </div>
 	   
-      <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>   
-      <script type="text/javascript">
-      jQuery(document).ready(function($) {  
+      <script data-cfasync="false" defer type="text/javascript" src="owl-carousel/owl.carousel.js"></script>   
+      <script data-cfasync="false" type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+      jQuery(function($) {  
       $("#owl-demo").owlCarousel({slideSpeed : 300,autoPlay : true, navigation : true, navigationText : ["",""], pagination : true,
-        singleItem:true    });  $("#owl-demo2").owlCarousel({slideSpeed : 300,	autoPlay : true,navigation : false,       	pagination : true, 	singleItem:true     });    });	
+        singleItem:true    });  $("#owl-demo2").owlCarousel({slideSpeed : 300,	autoPlay : true,navigation : false,       	pagination : true, 	singleItem:true     });    });
+      });	
        </script> 
    </body>
 		
