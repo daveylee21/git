@@ -54,6 +54,41 @@
        .home-footer .line-link img {background:#fff;}
        .home-footer .home-copyright {background:#2FCBE0;}
        .home-footer .home-copyright p {color:#fff;}
+
+       /* Homepage carousel usability enhancements */
+       #owl-demo .owl-controls .owl-buttons div {
+         position:absolute; top:50%; transform:translateY(-50%);
+         width:44px; height:44px; margin:0; padding:0;
+         border-radius:50%; background:#2FCBE0; color:#fff;
+         opacity:.92; font-size:0; line-height:44px;
+       }
+       #owl-demo .owl-controls .owl-buttons .owl-prev {left:16px;}
+       #owl-demo .owl-controls .owl-buttons .owl-next {right:16px;}
+       #owl-demo .owl-controls .owl-buttons .owl-prev::before,
+       #owl-demo .owl-controls .owl-buttons .owl-next::before {
+         display:block; font-size:32px; font-weight:400; text-align:center; line-height:42px;
+       }
+       #owl-demo .owl-controls .owl-buttons .owl-prev::before {content:"‹";}
+       #owl-demo .owl-controls .owl-buttons .owl-next::before {content:"›";}
+       #owl-demo .owl-controls .owl-pagination {
+         position:absolute; left:0; right:0; bottom:14px; z-index:5; text-align:center;
+       }
+       #owl-demo .owl-controls .owl-page span {
+         background:#fff; opacity:.6; box-shadow:0 1px 4px rgba(0,0,0,.35);
+       }
+       #owl-demo .owl-controls .owl-page.active span {background:#2FCBE0; opacity:1;}
+       #owl-demo .carousel-text h1 {
+         font:inherit; font-size:inherit; line-height:inherit; font-weight:400;
+       }
+       a.home-clickable-image {display:block; overflow:hidden;}
+       a.home-clickable-image img {transition:transform .28s ease;}
+       a.home-clickable-image:hover img,
+       a.home-clickable-image:focus img {transform:scale(1.035);}
+       @media (max-width:768px) {
+         #owl-demo .owl-controls .owl-buttons div {width:38px;height:38px;line-height:38px;}
+         #owl-demo .owl-controls .owl-buttons .owl-prev {left:8px;}
+         #owl-demo .owl-controls .owl-buttons .owl-next {right:8px;}
+       }
       </style>
 
 	
@@ -190,7 +225,7 @@
     <div class="s-12 m-6 l-3 margin-bottom">
     <h3> <a href="room2-4.html"><b>
     <font color="#F92567" >除甲醛致癌物</font></b></a></h3>
-	<a href="room2-4.html">
+	<a class="home-clickable-image" href="room2-4.html">
     <img src="img/hcho/hcho.webp"  alt="除甲醛消毒"/>
 	</a>
 		
@@ -374,8 +409,8 @@
       <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>   
       <script type="text/javascript">
       jQuery(document).ready(function($) {  
-      $("#owl-demo").owlCarousel({slideSpeed : 300,autoPlay : true, 	navigation : false, pagination : false,
-       	singleItem:true    });  $("#owl-demo2").owlCarousel({slideSpeed : 300,	autoPlay : true,navigation : false,       	pagination : true, 	singleItem:true     });    });	
+      $("#owl-demo").owlCarousel({slideSpeed : 300,autoPlay : true, navigation : true, navigationText : ["",""], pagination : true,
+        singleItem:true    });  $("#owl-demo2").owlCarousel({slideSpeed : 300,	autoPlay : true,navigation : false,       	pagination : true, 	singleItem:true     });    });	
        </script> 
    </body>
 		
