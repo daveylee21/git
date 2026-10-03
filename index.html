@@ -85,6 +85,8 @@
        a.home-clickable-image:hover img,
        a.home-clickable-image:focus img {transform:scale(1.035);}
        @media (max-width:768px) {
+         /* Match every mobile H2 to the current 1rem homepage H1. */
+         body.size-1140 h2 {font-size:1rem !important;}
          #owl-demo .owl-controls .owl-buttons div {width:38px;height:38px;line-height:38px;}
          #owl-demo .owl-controls .owl-buttons .owl-prev {left:8px;}
          #owl-demo .owl-controls .owl-buttons .owl-next {right:8px;}
