@@ -1636,6 +1636,25 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
            font-size:20px; line-height:1.1; white-space:nowrap;
          }
        }
+       /* Reduce navigation pressure on tablets and narrow landscape screens. */
+       @media (min-width:769px) and (max-width:1099px) {
+         #home-nav > .line {padding-inline:4px;}
+         #home-nav > .line > .top-nav {
+           grid-template-columns:minmax(0,1fr) 108px minmax(0,1fr);
+         }
+         #home-nav .top-ul > li > a {
+           padding-inline:2px;
+           font-size:12px;
+         }
+         #home-nav .top-ul > li.nav-language > a {
+           padding-inline:4px;
+           white-space:nowrap;
+         }
+         #home-nav .logo a {
+           padding-inline:2px;
+           font-size:18px;
+         }
+       }
        @media (min-width:1100px) {
          #home-nav .top-ul > li > a {font-size:16px;}
        }
