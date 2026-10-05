@@ -323,9 +323,9 @@
   font-size:1.1em;
   margin-left:0.5em;
   text-align:right;
-}.l-2 {width:16.6666%;}.l-3 {width:25%;}.l-4 {width:33.3333%;}.l-5 {width:41.6666%;}.l-8 {width:66.6666%;}.l-9 {width:75%;}.s-4 {width:33.3333%;}.s-12 {width:100%}.m-6 {width:50%;}.m-12 {width:100%}
 }
-@media screen and (max-width:480px) {.size-960 {max-width:480px;}.size-1140 {max-width:480px;}.hide-l {display:block;}.hide-m {display:block;}.hide-s {display:none;}.count-number {margin-right:-1.25em;}.l-2 {width:16.6666%;}.l-3 {width:25%;}.l-4 {width:33.3333%;}.l-5 {width:41.6666%;}.l-8 {width:66.6666%;}.l-9 {width:75%;}.m-6 {width:50%;}.m-12 {width:100%}.s-4 {width:33.3333%;}.s-12 {width:100%}
+}
+@media screen and (max-width:480px) {.size-960 {max-width:480px;}.size-1140 {max-width:480px;}.hide-l {display:block;}.hide-m {display:block;}.hide-s {display:none;}.count-number {margin-right:-1.25em;}
 }.center {
 	float: none;
 	margin: 0 auto;
@@ -473,8 +473,6 @@ body {
 	z-index: 500;
 }.top-nav {
 	background: none repeat scroll 0 0 rgba(0, 30, 34, 0.85);
-}.top-nav ul {
-	padding: 0;
 }.logo {
 	margin: 0;
 	text-align: center;
@@ -635,8 +633,6 @@ body {
   	padding: 0;
   }ul.top-ul.right {
   	float: none;
-  }footer {
-
   }footer .right {
   float: none;
   }
