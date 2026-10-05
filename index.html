@@ -1606,6 +1606,31 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
          #owl-demo .owl-controls .owl-buttons div {width:38px;height:38px;line-height:38px;}
          #owl-demo .owl-controls .owl-buttons .owl-prev {left:8px;}
          #owl-demo .owl-controls .owl-buttons .owl-next {right:8px;}
+
+         /* Keep all mobile carousel slides the same height and reserve space for pagination. */
+         #carousel,
+         #owl-demo,
+         #owl-demo .owl-wrapper-outer,
+         #owl-demo .owl-wrapper,
+         #owl-demo .owl-item,
+         #owl-demo .item {background:#001e22;}
+         #owl-demo .carousel-text {
+           box-sizing:border-box;
+           min-height:168px;
+           padding:18px 12px 46px;
+         }
+         #owl-demo .carousel-text h1,
+         #owl-demo .carousel-text h2 {
+           margin:0;
+           line-height:1.45;
+         }
+         #owl-demo .carousel-text p {
+           margin:22px 0 0;
+           line-height:1.6;
+         }
+         #owl-demo .owl-controls .owl-pagination {
+           bottom:14px;
+         }
        }
 
        /* Keep the desktop/landscape navigation on one row. */
