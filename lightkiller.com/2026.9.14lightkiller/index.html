@@ -1606,6 +1606,25 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
          #owl-demo .owl-controls .owl-buttons div {width:38px;height:38px;line-height:38px;}
          #owl-demo .owl-controls .owl-buttons .owl-prev {left:8px;}
          #owl-demo .owl-controls .owl-buttons .owl-next {right:8px;}
+
+         /* Mobile service cards only: enlarge and center content photos.
+            Carousel images, pagination and navigation are intentionally untouched. */
+         #first-block .margin > .margin-bottom > img:not([src*="image/line"]),
+         #first-block .margin > .margin-bottom > a.home-clickable-image {
+           width:70%;
+           max-width:400px;
+           margin-left:auto;
+           margin-right:auto;
+         }
+         #first-block .margin > .margin-bottom > a.home-clickable-image > img {
+           display:block;
+           width:100%;
+           height:auto;
+         }
+         #first-block .margin > .margin-bottom > img:not([src*="image/line"]) {
+           display:block;
+           height:auto;
+         }
        }
 
        /* Keep the desktop/landscape navigation on one row. */
