@@ -1523,9 +1523,17 @@ form.customform input, form.customform select, form.customform textarea {
 
        /* Mobile pagination gets its own row so it can never overlap slide text. */
        @media (max-width:768px) {
+         /* Keep the entire mobile carousel on one continuous dark background.
+            This prevents a white seam from appearing between slide content and pagination. */
+         #carousel,
+         #owl-demo,
+         #owl-demo .owl-wrapper-outer,
          #owl-demo .owl-controls {
-           margin-top:0;
            background:#001e22;
+         }
+         #owl-demo .owl-controls {
+           margin-top:-1px;
+           border-top:1px solid #001e22;
          }
          #owl-demo .owl-controls .owl-pagination {
            position:static;
