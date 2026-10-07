@@ -1611,7 +1611,7 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
             Carousel images, pagination and navigation are intentionally untouched. */
          #first-block .margin > .margin-bottom > img:not([src*="image/line"]),
          #first-block .margin > .margin-bottom > a.home-clickable-image {
-           width:70%;
+           width:77%;
            max-width:400px;
            margin-left:auto;
            margin-right:auto;
@@ -1624,6 +1624,30 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
          #first-block .margin > .margin-bottom > img:not([src*="image/line"]) {
            display:block;
            height:auto;
+         }
+
+         /* Match the four product-development images to the mobile service-card sizing. */
+         #third-block .margin > div > img {
+           display:block;
+           width:77%;
+           max-width:400px;
+           height:auto;
+           margin-left:auto;
+           margin-right:auto;
+         }
+
+         /* Mobile-only typography refinements requested for the lower homepage sections. */
+         #philosophy .home-eyebrow,
+         #faq .home-eyebrow,
+         .home-footer .home-eyebrow {
+           font-size:1rem !important;
+         }
+         #philosophy .home-number,
+         .home-footer .home-steps li::before {
+           font-size:1rem;
+         }
+         #faq .home-muted {
+           color:#7b3fa1;
          }
        }
 
