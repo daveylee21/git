@@ -50,7 +50,7 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
  .home-principles,.home-faq-layout {grid-template-columns:1fr;gap:24px;}
  .home-steps {grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;}
  .home-footer {padding:48px 22px 24px;}
- .carousel-text {position:static;background:#001e22;padding:18px 12px;}
+ .carousel-text {position:static;background:#001e22;padding:18px 12px 48px;}
  .carousel-text h1 {font-size:1.6rem;}
  .carousel-text p {font-size:1rem;margin-top:8px;}
 }
