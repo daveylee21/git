@@ -1492,7 +1492,7 @@ form.customform input, form.customform select, form.customform textarea {
       
       
       
-      <link rel="stylesheet" href="css/home.css">
+      <link rel="stylesheet" href="css/home.css?v=20261008-2">
 <style>
 /* Paint the first slide before carousel JavaScript is ready. */
        #owl-demo {display:block;}
@@ -1520,6 +1520,26 @@ form.customform input, form.customform select, form.customform textarea {
          background:#fff; opacity:.6; box-shadow:0 1px 4px rgba(0,0,0,.35);
        }
        #owl-demo .owl-controls .owl-page.active span {background:#2FCBE0; opacity:1;}
+
+       /* Mobile pagination gets its own row so it can never overlap slide text. */
+       @media (max-width:768px) {
+         #owl-demo .owl-controls {
+           margin-top:0;
+           background:#001e22;
+         }
+         #owl-demo .owl-controls .owl-pagination {
+           position:static;
+           display:flex;
+           align-items:center;
+           justify-content:center;
+           min-height:38px;
+           line-height:1;
+         }
+         #owl-demo .owl-controls .owl-buttons div {
+           top:calc(50% - 19px);
+         }
+       }
+
        #owl-demo .carousel-text h1 {
          font:inherit; font-size:inherit; line-height:inherit; font-weight:400;
        }
