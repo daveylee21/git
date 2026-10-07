@@ -1549,8 +1549,18 @@ form.customform input, form.customform select, form.customform textarea {
          }
        }
 
+       /* First slide keeps the semantic H1 but matches slides 2-3 typography. */
        #owl-demo .carousel-text h1 {
-         font:inherit; font-size:inherit; line-height:inherit; font-weight:400;
+         font-family:inherit;
+         font-size:2em;
+         line-height:normal;
+         font-weight:normal;
+       }
+       @media (max-width:768px) {
+         #owl-demo .carousel-text h1 {
+           font-size:1rem;
+           line-height:inherit;
+         }
        }
 </style>
 
