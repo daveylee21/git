@@ -1567,9 +1567,8 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
        .home-footer .home-copyright {background:#2FCBE0;}
        .home-footer .home-copyright p {color:#fff;}
 
-       /* Paint the first slide immediately; do not wait for Owl/jQuery initialization. */
-       #carousel, #owl-demo, #owl-demo > .item:first-child {display:block;}
-       #owl-demo {visibility:visible; min-height:1px;}
+       /* Paint the first slide before carousel JavaScript is ready. */
+       #owl-demo {display:block;}
        #owl-demo > .item:not(:first-child) {display:none;}
        #owl-demo .item > img {width:100%;height:auto;aspect-ratio:16 / 9;}
        /* Homepage carousel usability enhancements */
@@ -1653,7 +1652,8 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
       </style>
 
 	
-      <!-- Non-critical site scripts are loaded at the end of body to keep the LCP path clear. -->
+      <script data-cfasync="false" defer type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+      <script data-cfasync="false" defer type="text/javascript" src="js/responsee.js"></script>  
 	
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-978261267">
@@ -1964,8 +1964,6 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
    <p>世屋國際環境有限公司 © 2026 SEIYA</p><p>TEL：02-2872-5575 / FAX：02-2874-3644</p>
   </div>
 	   
-      <script data-cfasync="false" defer type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-      <script data-cfasync="false" defer type="text/javascript" src="js/responsee.js"></script>
       <script data-cfasync="false" defer type="text/javascript" src="owl-carousel/owl.carousel.js"></script>   
       <script data-cfasync="false" type="text/javascript">
       document.addEventListener("DOMContentLoaded", function() {
