@@ -1710,3 +1710,36 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
          }
        }
 
+
+
+/* =========================================================
+   V2 native homepage controls — no jQuery / Responsee JS / Owl JS
+   ========================================================= */
+.v2-carousel {
+  position:relative;
+  width:100%;
+  overflow:hidden;
+}
+.v2-carousel > .item {
+  display:none;
+}
+.v2-carousel > .item.v2-active {
+  display:block;
+}
+
+/* Reuse the existing visual language without the legacy icon font. */
+.nav-text:after {
+  content:"☰" !important;
+  font-family:Arial, sans-serif !important;
+  font-size:1.1em;
+  margin-left:.5em;
+}
+
+/* Native-created controls intentionally use the old class names
+   so the existing arrow/pagination appearance stays identical. */
+.v2-carousel > .owl-controls {
+  display:block;
+}
+.v2-carousel-secondary > .owl-controls {
+  text-align:center;
+}
