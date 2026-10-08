@@ -1492,62 +1492,9 @@ form.customform input, form.customform select, form.customform textarea {
       
       
       
-      <link rel="preload" href="css/home.css?v=20261008-3" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      <noscript><link rel="stylesheet" href="css/home.css?v=20261008-3"></noscript>
+      <link rel="stylesheet" href="css/home.css?v=20261008-2">
 <style>
-/* Above-the-fold homepage critical styles. */
-       body {font-family:Arial,"Noto Sans TC","Microsoft JhengHei",sans-serif;}
-       .carousel-text h1 {
-         display:inline-block; margin:0; padding:.32em .62em;
-         background:#fff; color:#001e22;
-       }
-       .carousel-text p a {color:#fff;}
-
-       /* Keep desktop navigation stable while the non-critical stylesheet loads. */
-       @media (min-width:769px) {
-         #home-nav > .line > .top-nav {
-           display:grid;
-           grid-template-columns:minmax(0,1fr) 120px minmax(0,1fr);
-           align-items:stretch;
-         }
-         #home-nav > .line > .top-nav > .top-nav,
-         #home-nav > .line > .top-nav > ul {
-           float:none; width:auto; min-width:0; background:transparent;
-         }
-         #home-nav .top-ul {
-           display:flex; flex-wrap:nowrap; float:none; width:100%; height:100%;
-         }
-         #home-nav .top-ul > li {float:none; flex:1 1 0; min-width:0;}
-         #home-nav .top-ul > li.nav-language {flex:0 0 auto;}
-         #home-nav .top-ul > li.nav-language > a {padding-inline:6px;}
-         #home-nav .top-ul > li > a {
-           display:flex; align-items:center; justify-content:center;
-           height:100%; min-height:76px; padding:12px 4px;
-           font-size:14px; line-height:1.5; white-space:nowrap;
-         }
-         #home-nav .logo {float:none; width:100%;}
-         #home-nav .logo a {
-           display:block; padding:16px 4px; min-height:76px;
-           font-size:20px; line-height:1.1; white-space:nowrap;
-         }
-       }
-       @media (min-width:1100px) {
-         #home-nav .top-ul > li > a {font-size:16px;}
-       }
-       @media (max-width:768px) {
-         .carousel-text {
-           position:static;
-           background:#001e22;
-           padding:18px 12px 12px;
-         }
-         .carousel-text p {font-size:1rem; margin-top:8px;}
-         #home-nav .logo.hide-l > a {
-           display:flex; flex-direction:column; align-items:center;
-           gap:8px; line-height:1.4;
-         }
-       }
-
-       /* Paint the first slide before carousel JavaScript is ready. */
+/* Paint the first slide before carousel JavaScript is ready. */
        #owl-demo {display:block;}
        #owl-demo > .item:not(:first-child) {display:none;}
        #owl-demo .item > img {width:100%;height:auto;aspect-ratio:16 / 9;}
@@ -1618,8 +1565,8 @@ form.customform input, form.customform select, form.customform textarea {
 </style>
 
 	
-      <script data-cfasync="false" defer src="js/jquery-1.8.3.min.js"></script>
-      <script data-cfasync="false" defer src="js/responsee.js"></script>  
+      <script data-cfasync="false" defer type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+      <script data-cfasync="false" defer type="text/javascript" src="js/responsee.js"></script>  
 	
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-978261267">
@@ -1930,8 +1877,14 @@ form.customform input, form.customform select, form.customform textarea {
    <p>世屋國際環境有限公司 © 2026 SEIYA</p><p>TEL：02-2872-5575 / FAX：02-2874-3644</p>
   </div>
 	   
-      <script data-cfasync="false" defer src="owl-carousel/owl.carousel.js"></script>   
-      <script data-cfasync="false" defer src="js/site-carousel.js?v=20261008-1"></script> 
+      <script data-cfasync="false" defer type="text/javascript" src="owl-carousel/owl.carousel.js"></script>   
+      <script data-cfasync="false" type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+      jQuery(function($) {  
+      $("#owl-demo").owlCarousel({slideSpeed : 300,autoPlay : true, navigation : true, navigationText : ["",""], pagination : true,
+        singleItem:true    });  $("#owl-demo2").owlCarousel({slideSpeed : 300,	autoPlay : true,navigation : false,       	pagination : true, 	singleItem:true     });    });
+      });	
+       </script> 
    </body>
 		
 </html>
