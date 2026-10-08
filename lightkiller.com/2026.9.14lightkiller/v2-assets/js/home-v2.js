@@ -122,6 +122,7 @@
     root.addEventListener("focusout", startAuto);
 
     show(0, false);
+    root.classList.add("v2-ready");
     startAuto();
   }
 

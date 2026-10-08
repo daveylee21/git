@@ -1743,3 +1743,31 @@ a:focus-visible,summary:focus-visible {outline:3px solid #b65a00;outline-offset:
 .v2-carousel-secondary > .owl-controls {
   text-align:center;
 }
+
+
+/* V2 CLS stabilization: reserve the first rendered slide and controls before JS starts. */
+.v2-carousel:not(.v2-ready) > .item:first-child {
+  display:block;
+}
+.v2-carousel.v2-ready > .item:first-child:not(.v2-active) {
+  display:none;
+}
+@media (max-width:768px) {
+  #owl-demo {
+    padding-bottom:38px;
+    background:#001e22;
+  }
+  #owl-demo > .owl-controls {
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:38px;
+    margin:0;
+    background:#001e22;
+  }
+  #owl-demo > .owl-controls .owl-pagination {
+    height:38px;
+    min-height:38px;
+  }
+}
