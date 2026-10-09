@@ -1,0 +1,35 @@
+{
+  "status": "prepared-not-deployed",
+  "redirects": [
+    {
+      "source": "/about.htm",
+      "target": "https://www.lightkiller.com/about.html",
+      "status": 301,
+      "preserve_query": true,
+      "methods": [
+        "GET",
+        "HEAD"
+      ]
+    },
+    {
+      "source": "/room1.htm",
+      "target": "https://www.lightkiller.com/room1.html",
+      "status": 301,
+      "preserve_query": true,
+      "methods": [
+        "GET",
+        "HEAD"
+      ]
+    },
+    {
+      "source": "/room3.htm",
+      "target": "https://www.lightkiller.com/room3.html",
+      "status": 301,
+      "preserve_query": true,
+      "methods": [
+        "GET",
+        "HEAD"
+      ]
+    }
+  ]
+}

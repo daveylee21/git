@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <system.web>
+    <compilation tempDirectory="D:\Inetpub\vhosts\lightkiller.com\tmp" />
+    <!-- Keep remote errors generic; do not redirect application errors to the homepage. -->
+    <customErrors mode="RemoteOnly" />
+  </system.web>
+  <system.webServer>
+    <defaultDocument enabled="true">
+      <files>
+        <clear />
+        <add value="index.html" />
+        <add value="index.htm" />
+      </files>
+    </defaultDocument>
+    <rewrite>
+      <rules>
+        <rule name="Legacy about.htm to about.html" stopProcessing="true">
+          <match url="^about\.htm$" ignoreCase="false" />
+          <conditions logicalGrouping="MatchAll"><add input="{REQUEST_METHOD}" pattern="^(GET|HEAD)$" /></conditions>
+          <action type="Redirect" url="https://www.lightkiller.com/about.html" redirectType="Permanent" appendQueryString="true" />
+        </rule>
+        <rule name="Legacy room1.htm to room1.html" stopProcessing="true">
+          <match url="^room1\.htm$" ignoreCase="false" />
+          <conditions logicalGrouping="MatchAll"><add input="{REQUEST_METHOD}" pattern="^(GET|HEAD)$" /></conditions>
+          <action type="Redirect" url="https://www.lightkiller.com/room1.html" redirectType="Permanent" appendQueryString="true" />
+        </rule>
+        <rule name="Legacy room3.htm to room3.html" stopProcessing="true">
+          <match url="^room3\.htm$" ignoreCase="false" />
+          <conditions logicalGrouping="MatchAll"><add input="{REQUEST_METHOD}" pattern="^(GET|HEAD)$" /></conditions>
+          <action type="Redirect" url="https://www.lightkiller.com/room3.html" redirectType="Permanent" appendQueryString="true" />
+        </rule>
+      </rules>
+    </rewrite>
+  </system.webServer>
+</configuration>
