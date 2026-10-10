@@ -127,7 +127,9 @@ body{background:var(--paper);color:var(--ink)}body h1,body h2,body h3{color:var(
 </style><style data-v3-full-width-carousel>
 #carousel{padding:0;width:100%;background:#fff}#owl-demo{width:100%;max-width:none;margin:0;border:0;border-radius:0;box-shadow:none}#owl-demo .item{border:0;border-radius:0}#owl-demo .item>img{width:100%}
 @media(max-width:768px){#carousel{padding:0}#owl-demo{border:0;border-radius:0}}
-</style><style data-v3-menu-pink>#home-nav .nav-text{color:#e51d68}</style></head>
+</style><style data-v3-menu-pink>#home-nav .nav-text{color:#e51d68}</style><style data-v3-carousel-fix>.v2-carousel.v3-ready>.item{display:none!important}.v2-carousel.v3-ready>.item.v3-active{display:block!important}#owl-demo .item>img{object-fit:cover;width:100%;max-width:none;margin:0;filter:none}#owl-demo{position:relative}#owl-demo .carousel-text{bottom:100px}.v3-controls{position:absolute;inset:0;z-index:10;pointer-events:none}.v3-controls button{pointer-events:auto;cursor:pointer;border:1px solid #b69147;color:#58401c;background:#fff9e9;box-shadow:0 3px 10px #0002}.v3-arrow{position:absolute;top:45%;width:48px;height:48px;border-radius:50%;font:36px/1 Arial}.v3-prev{left:18px}.v3-next{right:18px}.v3-dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:4px;padding:4px 8px;border-radius:30px;background:#fffdf3e8;border:1px solid #ccb478;pointer-events:auto}.v3-dot{position:relative;width:36px;height:36px;border:0!important;box-shadow:none!important;background:transparent!important;border-radius:50%}.v3-dot:after{content:'';position:absolute;width:10px;height:10px;top:13px;left:13px;background:#a99b81;border-radius:50%}.v3-dot[aria-current=true]:after{background:#e51d68;box-shadow:0 0 0 3px #e51d6820}.v3-pause{position:absolute;bottom:25px;right:22px;width:36px;height:36px;border-radius:50%}.v3-controls button:focus-visible{outline:3px solid #e51d68;outline-offset:3px}#owl-demo2 .v3-controls{position:relative;height:74px}#owl-demo2 .v3-arrow{top:10px}#owl-demo2 .v3-dots{bottom:12px}
+@media(max-width:768px){#owl-demo .carousel-text{bottom:auto;padding-bottom:30px}#owl-demo .v3-controls{bottom:auto;height:270px}.v3-arrow{top:42%;width:42px;height:42px}.v3-prev{left:10px}.v3-next{right:10px}.v3-dots{bottom:10px}.v3-pause{bottom:14px;right:12px}}
+</style></head>
 	
 
 	
@@ -422,7 +424,28 @@ body{background:var(--paper);color:var(--ink)}body h1,body h2,body h3{color:var(
 	   
    <p>世屋國際環境有限公司 © 2026 SEIYA</p><p>TEL：02-2872-5575 / FAX：02-2874-3644</p>
   </div>
-<script data-cfasync="false" defer src="v2-assets/js/home-v2.js?v=3"></script>
+<script data-v3-carousel>(() => {
+  const menu = document.querySelector('#home-nav .nav-text');
+  if(menu) { menu.setAttribute('role','button'); menu.tabIndex=0; menu.setAttribute('aria-expanded','false'); const toggle=()=>{ const open=menu.getAttribute('aria-expanded')!=='true'; menu.setAttribute('aria-expanded',String(open)); document.querySelectorAll('#home-nav .top-ul').forEach(el=>el.classList.toggle('show-menu',open)); }; menu.addEventListener('click',toggle); menu.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}}); }
+  document.querySelectorAll('.v2-carousel').forEach(root=>{
+    const slides=Array.from(root.children).filter(el=>el.classList.contains('item'));
+    if(slides.length<2)return;
+    root.querySelectorAll('.owl-controls').forEach(el=>el.remove());
+    root.classList.add('v3-ready'); root.setAttribute('role','region'); root.setAttribute('aria-label','圖片輪播');
+    let current=0,timer,startX=null,paused=false;
+    const controls=document.createElement('div'); controls.className='v3-controls';
+    const prev=document.createElement('button'), next=document.createElement('button'), dots=document.createElement('div'),pause=document.createElement('button');
+    prev.className='v3-arrow v3-prev';next.className='v3-arrow v3-next';dots.className='v3-dots';pause.className='v3-pause';prev.textContent='‹';next.textContent='›';pause.textContent='Ⅱ';prev.setAttribute('aria-label','上一張');next.setAttribute('aria-label','下一張');pause.setAttribute('aria-label','暫停自動輪播');
+    const buttons=slides.map((_,i)=>{const b=document.createElement('button');b.className='v3-dot';b.setAttribute('aria-label',`顯示第 ${i+1} 張`);b.addEventListener('click',()=>{show(i);restart();});dots.append(b);return b;});
+    function show(i){current=(i+slides.length)%slides.length;slides.forEach((el,n)=>{el.classList.toggle('v3-active',n===current);el.hidden=n!==current;el.setAttribute('aria-hidden',String(n!==current));});buttons.forEach((b,n)=>b.setAttribute('aria-current',String(n===current)));}
+    function restart(){clearInterval(timer);if(!paused&&!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(current+1),5500);}
+    prev.addEventListener('click',()=>{show(current-1);restart();});next.addEventListener('click',()=>{show(current+1);restart();});pause.addEventListener('click',()=>{paused=!paused;pause.textContent=paused?'▶':'Ⅱ';pause.setAttribute('aria-label',paused?'播放自動輪播':'暫停自動輪播');restart();});
+    controls.append(prev,dots,next,pause);root.append(controls);show(0);restart();
+    root.addEventListener('touchstart',e=>{startX=e.changedTouches[0].clientX;},{passive:true});root.addEventListener('touchend',e=>{if(startX!==null){const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45){show(current+(dx<0?1:-1));restart();}}startX=null;},{passive:true});
+    root.addEventListener('mouseenter',()=>clearInterval(timer));root.addEventListener('mouseleave',restart);root.addEventListener('focusin',()=>clearInterval(timer));root.addEventListener('focusout',restart);root.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){show(current-1);restart();}if(e.key==='ArrowRight'){show(current+1);restart();}});
+  });
+})();
+</script>
 </body>
 		
 </html>
